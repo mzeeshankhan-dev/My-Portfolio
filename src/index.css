@@ -10,7 +10,7 @@
   --color-card-bg: #111a23;
   --color-gold: #d6b477;
   --color-text: #f4f0e8;
-  --color-muted-gray: #a6b0bb;
+  --color-muted-gray: #12172a;
   --color-border: #26313d;
   --color-primary: #c8b6195d;
 }
@@ -40,6 +40,7 @@ body {
   margin: 0;
   min-width: 320px;
   font-family: var(--font-sans);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -67,6 +68,7 @@ select {
 
 button {
   cursor: pointer;
+  color: var(--color-text);
 }
 
 button:disabled {
@@ -111,4 +113,8 @@ h5 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+.container{
+  @apply max-w-full min-[1200px]:w-300 min-[1200px]:mx-auto px-4 lg:px-8 py-8 ;
 }
