@@ -5,6 +5,7 @@ import Preloader from './components/common/Preloader';
 import Header from './components/sections/Header';
 import Hero from './components/sections/Hero';
 import Footer from './components/sections/Footer';
+import TechLogoSwiper from './components/sections/TechLogoSwiper';
 
 const App = () => {
 
@@ -21,10 +22,11 @@ const App = () => {
         )}
       </AnimatePresence>
       {!loading && (
-        <div>
+        <div className='overflow-hidden'>
           <Header />
           <main>
             <Hero />
+            <TechLogoSwiper/>
           </main>
           <Footer />
         </div>

@@ -37,9 +37,9 @@ export default function Header() {
     }, [])
 
     return (
-        <header className={`fixed top-0 w-full flex justify-center z-10 items-center pt-6 transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
+        <header className={`fixed top-0 w-full flex justify-center z-10 items-center pt-4 transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
 
-            <div className={`header-wraper h-20 sm:h-25 flex items-center justify-between ${mobileOpen ? "rounded-t-2xl" : " rounded-2xl"} ${mobileOpen ? "border-x" & "border-t" : "border"} bg-white/10 backdrop-blur-2xl border-black/1 px-6 py-4 w-[90%] min-[1200px]:w-300 min-[1200px]:mx-auto `}>
+            <div className={` h-18 sm:h-20 flex items-center justify-between ${mobileOpen ? "rounded-t-2xl border-x border-t" : "rounded-2xl border"}  bg-white/10 backdrop-blur-xl border-white/10 px-6 py-4 w-[90%] sm:w-[80%] lg:w-[70%] min-[1300px]:mx-auto `}>
 
                 <button type="button"
                     className="flex h-12 w-12 items-center justify-center rounded-full lg:hidden"
@@ -56,17 +56,17 @@ export default function Header() {
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.30 }}
-                            className="menu-drawer flex flex-col p-6 w-full absolute top-full left-0 rounded-b-2xl border-x border-b border-black/1 border-2 bg-white/10 backdrop-blur-lg">
+                            className="menu-drawer flex flex-col p-6 lg:hidden w-full absolute top-full left-0 rounded-b-2xl border-x border-b border-white/10 border-2 bg-white/10 backdrop-blur-3xl">
                             <nav className='flex flex-col gap-1'>
                                 {navLinks.map((link, index) => (
                                     <motion.a
                                         initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1}}
+                                        animate={{ opacity: 1 }}
                                         transition={{
                                             duration: 0.5,
                                             delay: index * 0.15,
                                         }}
-                                        className='bg-gray-700 px-6 py-2 rounded-xl hover:bg-gray-800' key={index} href={link.href}>
+                                        className='bg-card-bg px-6 py-2 rounded-xl hover:bg-gray-800' key={index} href={link.href}>
                                         {link.name}
                                     </motion.a>
                                 ))}
@@ -75,7 +75,7 @@ export default function Header() {
                     )}
                 </AnimatePresence>
 
-                <div className="logo w-20 h-20 sm:w-25 sm:h-25 lg:w-30 lg:h-30">
+                <div className="logo w-18 h-18 sm:w-20 sm:h-20 lg:w-25 lg:h-25">
                     <a href="#">
                         <img src={HeaderLogo} alt="Logo" />
                     </a>
@@ -91,8 +91,8 @@ export default function Header() {
                     ))}
                 </nav>
 
-                <div className="px-2 py-2 sm:px-3 lg:px4 bg-gold rounded-xl">
-                    <a href="#Contact">Let's Talk</a>
+                <div className="px-2 py-2 sm:px-3 lg:px4 bg-gold rounded-xl hover:-translate-y-1.5 transition-all">
+                    <a href="#contact">Let's Talk</a>
                 </div>
             </div>
         </header>
