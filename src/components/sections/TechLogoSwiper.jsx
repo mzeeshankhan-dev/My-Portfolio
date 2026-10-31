@@ -1,10 +1,10 @@
 import React from 'react'
 import { motion } from "framer-motion";
-import skills from '../../data/data';
+import { skills } from '../../data/data';
 
 const TechLogoSwiper = () => {
   return (
-    <section className='sectionCtr border-y border-border'>
+    <section className='relative w-full overflow-hidden flex justify-center items-center border-y border-border'>
       <div className="container [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <motion.div
           initial={{

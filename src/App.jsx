@@ -6,6 +6,7 @@ import Header from './components/sections/Header';
 import Hero from './components/sections/Hero';
 import Footer from './components/sections/Footer';
 import TechLogoSwiper from './components/sections/TechLogoSwiper';
+import Services from './components/sections/Services';
 
 const App = () => {
 
@@ -26,7 +27,8 @@ const App = () => {
           <Header />
           <main>
             <Hero />
-            <TechLogoSwiper/>
+            <TechLogoSwiper />
+            <Services />
           </main>
           <Footer />
         </div>

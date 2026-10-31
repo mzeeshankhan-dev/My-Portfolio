@@ -113,8 +113,8 @@ h5 {
 }
 
 .container{
-  @apply max-w-full min-[1300px]:w-300 min-[1300px]:mx-auto px-6 lg:px-12 py-10 ;
+  @apply max-w-7xl mx-auto px-6 lg:px-12 py-10 lg:py-16 ;
 }
 .sectionCtr{
-  @apply relative w-full overflow-hidden flex justify-center items-center
+  @apply relative w-full overflow-hidden flex justify-center items-center py-20
 }
