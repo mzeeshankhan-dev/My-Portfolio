@@ -7,6 +7,7 @@ import Hero from './components/sections/Hero';
 import Footer from './components/sections/Footer';
 import TechLogoSwiper from './components/sections/TechLogoSwiper';
 import Services from './components/sections/Services';
+import Projects from './components/sections/Project';
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
             <Hero />
             <TechLogoSwiper />
             <Services />
+            <Projects/>
           </main>
           <Footer />
         </div>

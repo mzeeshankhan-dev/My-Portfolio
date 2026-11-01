@@ -5,7 +5,7 @@ import { skills } from '../../data/data';
 const TechLogoSwiper = () => {
   return (
     <section className='relative w-full overflow-hidden flex justify-center items-center border-y border-border'>
-      <div className="container [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <div className="max-w-7xl mx-auto my-8 [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
         <motion.div
           initial={{
             x: 0
