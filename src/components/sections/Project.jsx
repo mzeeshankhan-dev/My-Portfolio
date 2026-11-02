@@ -6,6 +6,7 @@ import {
     RiCloseLine,
     RiGithubFill,
     RiExternalLinkFill,
+    RiArrowRightLine,
     RiCodeSSlashLine,
     RiCalendarLine,
     RiBriefcaseLine,
@@ -90,12 +91,12 @@ function Projects() {
     return (
         <section
             id="projects"
-            className="relative overflow-hidden bg-body-bg px-5 py-24 md:px-10 lg:py-32"
+            className="sectionCtr"
         >
             {/* Background glow */}
             <div className="pointer-events-none absolute -left-40 top-40 h-96 w-96 rounded-full bg-primary/5 blur-[140px]" />
 
-            <div className="relative mx-auto max-w-7xl">
+            <div className="container">
 
                 {/* Section heading */}
                 <motion.div
@@ -154,18 +155,16 @@ function Projects() {
                             const Icon = project.icon;
 
                             return (
-                                <motion.button
+                                <motion.div
                                     key={project.id}
-                                    type="button"
                                     variants={cardVariants}
                                     layout
-                                    onClick={() => setSelectedProject(project)}
                                     className="group text-left"
                                 >
                                     <article className="h-full overflow-hidden rounded-2xl border border-border/70 bg-surface/70 transition-all duration-300 group-hover:-translate-y-2 group-hover:border-primary/40 group-hover:shadow-[0_18px_50px_rgba(0,0,0,0.2)]">
 
                                         {/* Image */}
-                                        <div className="relative aspect-[16/11] overflow-hidden bg-[#17212B]">
+                                        <div className="relative aspect-16/11 overflow-hidden bg-[#17212B]">
                                             <img
                                                 src={project.image}
                                                 alt={`${project.title} project preview`}
@@ -205,9 +204,11 @@ function Projects() {
                                             </span>
 
                                             {/* View icon */}
-                                            <span className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-body-bg">
+                                            <button
+                                                onClick={() => setSelectedProject(project)}
+                                                className="absolute bottom-4 right-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-md transition-all duration-300 group-hover:border-primary group-hover:bg-primary group-hover:text-body-bg">
                                                 <RiArrowRightUpLine size={21} />
-                                            </span>
+                                            </button>
                                         </div>
 
                                         {/* Content */}
@@ -248,9 +249,22 @@ function Projects() {
                                                 )}
                                             </div>
 
+                                            <div
+                                                onClick={() => setSelectedProject(project)}
+                                                className="mt-3 flex items-center justify-center gap-4 border-t border-border/70 pt-4 hover:cursor-pointer hover:text-primary">
+                                                <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-muted">
+                                                    Read More
+                                                </span>
+
+                                                <RiArrowRightLine
+                                                    size={18}
+                                                    className="text-primary transition-transform duration-300 group-hover:translate-x-1"
+                                                />
+                                            </div>
+
                                         </div>
                                     </article>
-                                </motion.button>
+                                </motion.div>
                             );
                         })}
                     </motion.div>
@@ -276,7 +290,7 @@ function Projects() {
                             <RiArrowRightUpLine
                                 size={19}
                                 className={`transition-transform duration-300 ${showAll
-                                    ? "rotate-[-45deg]"
+                                    ? "-rotate-45"
                                     : "group-hover:translate-x-1 group-hover:-translate-y-1"
                                     }`}
                             />
@@ -309,7 +323,7 @@ function ProjectModal({ project, onClose }) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
             onClick={onClose}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-3 backdrop-blur-md md:p-6"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 p-3 backdrop-blur-md md:p-6"
         >
             <motion.div
                 initial={{ opacity: 0, y: 35, scale: 0.97 }}
@@ -320,7 +334,7 @@ function ProjectModal({ project, onClose }) {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="project-modal-title"
-                className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-border bg-surface shadow-2xl"
+                className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-border bg-surface shadow-2xl scroolbar-thin scrollbar-track-transparent scrollbar-thumb-border/50 scrollbar-thumb-rounded-lg md:scrollbar-thumb-border/30"
             >
                 {/* Close button */}
                 <button
@@ -333,14 +347,14 @@ function ProjectModal({ project, onClose }) {
                 </button>
 
                 {/* Project thumbnail */}
-                <div className="relative aspect-[16/9] overflow-hidden bg-[#17212B]">
+                <div className="relative aspect-video overflow-hidden bg-[#17212B]">
                     <img
                         src={project.image}
                         alt={`${project.title} full project preview`}
                         className="h-full w-full object-cover"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-body-bg/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-body-bg/80 via-transparent to-transparent" />
 
                     <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8">
                         <span className="mb-3 inline-flex rounded-full border border-primary/30 bg-black/40 px-3 py-1.5 text-[10px] uppercase tracking-widest text-primary backdrop-blur-md">
@@ -473,7 +487,7 @@ function ProjectModal({ project, onClose }) {
                                     className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-body-bg transition-all hover:-translate-y-1 hover:shadow-lg"
                                 >
                                     Live Preview
-                                    <RiExternalLinkLine size={17} />
+                                    <RiExternalLinkFill size={17} />
                                 </a>
                             )}
 
@@ -484,7 +498,7 @@ function ProjectModal({ project, onClose }) {
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-all hover:border-primary hover:text-primary"
                                 >
-                                    <RiGithubLine size={18} />
+                                    <RiGithubFill size={18} />
                                     Source Code
                                 </a>
                             )}

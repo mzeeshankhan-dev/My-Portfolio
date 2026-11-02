@@ -8,7 +8,7 @@ import AnimatedText from '../common/AnimatedText';
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex justify-center items-center">
+    <section id='home' className="relative w-full min-h-screen overflow-hidden flex justify-center items-center">
       <div className="container grid min-[700px]:grid-cols-[2fr_1fr] gap-6 mt-20 max-[700px]:text-center">
         <picture className="absolute inset-0 -z-10 bg-body-bg">
           <source

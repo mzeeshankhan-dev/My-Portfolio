@@ -2,9 +2,10 @@
 
 export const navLinks = [
   { name: "Home", href: "#home" },
+  { name: "Services", href: "#services" },
+  { name: "Projects", href: "#projects" },
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -83,7 +84,7 @@ export const skills = [
   // },
 ];
 
-
+////////////  Services Section Data   //////////
 
 import {
   RiLayout2Line,
@@ -168,3 +169,79 @@ export const services = [
     icon: RiFlashlightLine,
   },
 ];
+
+//////////  About Section Data   //////////
+
+import {
+  RiGraduationCapLine,
+  RiLayout4Line,
+  RiLightbulbLine,
+  RiHtml5Line,
+  RiCss3Line,
+  RiJavascriptLine,
+  RiReactjsLine,
+} from "@remixicon/react";
+
+export const aboutData = {
+  eyebrow: "GET TO KNOW ME",
+
+  heading: "A little about me",
+
+  highlightedText: "and what I do.",
+
+  name: "Zeeshan Khan",
+
+  role: "Front-End Developer",
+
+  introduction:
+    "I enjoy turning ideas into modern, meaningful, and engaging digital experiences.",
+
+  description:
+    "I'm a Front-End Developer and a Computer Science student passionate about building clean, responsive, and user-friendly websites. I use modern front-end technologies to bring ideas to life through thoughtful design and structured code.",
+
+  moreAbout:
+    "My journey in web development is driven by curiosity and a desire to keep improving. I enjoy exploring new techniques, solving interface challenges, and learning how design and development work together to create better user experiences. Alongside my development journey, I'm pursuing a Bachelor's degree in Computer Science and continuously strengthening my technical foundation.",
+
+  image: "/images/about.webp",
+
+  imageAlt: "Professional portrait of Zeeshan Khan",
+
+  education: {
+    label: "EDUCATION",
+    degree: "Bachelor of Science",
+    field: "Computer Science",
+    status: "Currently pursuing",
+    icon: RiGraduationCapLine,
+  },
+
+  focusAreas: [
+    {
+      title: "Clean Development",
+      description:
+        "Writing organized, readable, and maintainable front-end code.",
+      icon: RiCodeSSlashLine,
+    },
+    {
+      title: "Responsive Design",
+      description:
+        "Building interfaces that work smoothly across different screen sizes.",
+      icon: RiLayout4Line,
+    },
+    {
+      title: "Continuous Learning",
+      description:
+        "Improving my skills and exploring modern web development techniques.",
+      icon: RiLightbulbLine,
+    },
+  ],
+
+  skills: [
+    { name: "HTML5", icon: RiHtml5Line },
+    { name: "CSS3", icon: RiCss3Line },
+    { name: "JavaScript", icon: RiJavascriptLine },
+    { name: "React", icon: RiReactjsLine },
+    { name: "Tailwind CSS", icon: RiTailwindCssFill },
+  ],
+
+  availability: "Open to learning opportunities and collaboration",
+};

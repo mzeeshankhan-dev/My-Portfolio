@@ -8,6 +8,7 @@ import Footer from './components/sections/Footer';
 import TechLogoSwiper from './components/sections/TechLogoSwiper';
 import Services from './components/sections/Services';
 import Projects from './components/sections/Project';
+import About from './components/sections/About';
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
             <TechLogoSwiper />
             <Services />
             <Projects/>
+            <About/>
           </main>
           <Footer />
         </div>

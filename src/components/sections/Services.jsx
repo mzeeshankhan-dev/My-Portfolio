@@ -72,15 +72,17 @@ function Services() {
                                 variants={cardVariants}
                                 whileHover={{ y: -7 }}
                                 transition={{ duration: 0.3 }}
-                                className="group relative text-center flex flex-col rounded-2xl mt-10 border border-border/70 bg-surface/70 p-7 transition-colors duration-300 hover:border-primary/40 md:p-8"
+                                className="group text-center flex flex-col rounded-2xl mt-10 border border-border/70 bg-surface/70 p-7 transition-colors duration-300 hover:border-primary/40 md:p-8"
                             >
                                 {/* Card glow */}
                                 <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-primary/0 blur-3xl transition-all duration-500 group-hover:bg-primary/10" />
 
                                 {/* Top row */}
-                                <div className="absolute top-[-10%] w-full left-0  mb-9 flex items-center justify-center">
-                                    <div className=" flex justify-center items-center size-24 rotate-90 bg-primary [clip-path:polygon(25%_0%,75%_0%,100%_50%,75%_100%,25%_100%,0%_50%)] group-hover:bg-primary/10 transition-all">
-                                        <Icon size={27} />
+                                <div className="relative h-5 w-full flex items-center justify-center">
+                                    <div className=" absolute bottom-0 flex justify-center items-center size-24 rotate-90 bg-primary [clip-path:polygon(25%_0%,75%_0%,100%_50%,75%_100%,25%_100%,0%_50%)] group-hover:bg-primary/10 transition-all">
+                                        <span className="-rotate-90">
+                                            <Icon size={27} />
+                                        </span>
                                     </div>
                                 </div>
 

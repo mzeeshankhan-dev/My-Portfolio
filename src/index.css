@@ -72,10 +72,8 @@ button:disabled {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
   font-family: var(--font-display);
-  /* color: var(--color-text); */
 }
 
 h1,
@@ -112,9 +110,9 @@ h5 {
   }
 }
 
-.container{
-  @apply max-w-7xl mx-auto px-6 lg:px-12 py-10 lg:py-16 ;
+.container {
+  @apply max-w-7xl mx-auto px-6 lg:px-12;
 }
-.sectionCtr{
-  @apply relative w-full overflow-hidden flex justify-center items-center py-20
+.sectionCtr {
+  @apply relative w-full overflow-hidden flex justify-center items-center py-20;
 }
