@@ -57,9 +57,9 @@ const About = () => {
                 >
                     <motion.div
                         variants={itemVariants}
-                        className="mb-5 flex items-center justify-center gap-3"
+                        className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/30 bg-primary/[0.04] px-5 py-2"
                     >
-                        <span className="h-px w-10 bg-primary" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_#D6B477]" />
 
                         <span className="text-xs font-semibold tracking-[0.25em] text-primary">
                             {aboutData.eyebrow}
@@ -203,177 +203,127 @@ const About = () => {
                 )}
 
                 {/* Full width bottom content */}
-                {showMore && (
-                    <motion.div
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.1 }}
-                    >
-
-                        {/* Education */}
+                <AnimatePresence initial={false}>
+                    {showMore && (
                         <motion.div
-                            variants={itemVariants}
-                            className="mb-14 grid gap-8 rounded-2xl border border-border bg-surface/70 p-7 sm:grid-cols-[0.7fr_1.3fr] sm:items-center sm:p-9"
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.1 }}
                         >
-                            <div>
-                                <span className="text-xs font-semibold tracking-[0.2em] text-primary">
-                                    MY ACADEMIC JOURNEY
-                                </span>
 
-                                <h3 className="mt-3 text-2xl font-semibold text-foreground">
-                                    Education
-                                </h3>
-
-                                <p className="mt-2 text-sm leading-7 text-muted">
-                                    Building a strong foundation in computer science and technology.
-                                </p>
-                            </div>
-
-                            <div className="flex items-center gap-5 border-t border-border pt-7 sm:border-l sm:border-t-0 sm:pl-9 sm:pt-0">
-                                <div className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                                    <RiGraduationCapLine size={28} />
-                                </div>
-
-                                <div>
-                                    <span className="text-[10px] font-semibold tracking-[0.18em] text-primary">
-                                        {aboutData.education.label}
-                                    </span>
-
-                                    <h4 className="mt-2 text-xl font-semibold text-foreground">
-                                        {aboutData.education.degree}
-                                    </h4>
-
-                                    <p className="mt-1 text-sm text-muted">
-                                        {aboutData.education.field}
-                                    </p>
-
-                                    <span className="mt-3 inline-flex items-center gap-2 text-xs text-muted">
-                                        <span className="size-1.5 rounded-full bg-primary" />
-                                        {aboutData.education.status}
-                                    </span>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Focus areas */}
-                        <motion.div variants={itemVariants} className="mb-16">
-                            <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
-                                <div>
-                                    <span className="text-xs font-semibold tracking-[0.2em] text-primary">
-                                        MY APPROACH
-                                    </span>
-
-                                    <h3 className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-                                        What I Focus On
-                                    </h3>
-                                </div>
-
-                                <p className="max-w-md text-sm leading-7 text-muted">
-                                    The principles that guide the way I approach front-end development.
-                                </p>
-                            </div>
-
-                            <div className="grid gap-4 md:grid-cols-3">
-                                {aboutData.focusAreas.map((item, index) => {
-                                    const Icon = item.icon;
-
-                                    return (
-                                        <motion.div
-                                            key={item.title}
-                                            variants={itemVariants}
-                                            whileHover={{ y: -6 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 transition-colors duration-300 hover:border-primary/40"
-                                        >
-                                            <span className="absolute right-6 top-6 text-xs text-muted/50">
-                                                0{index + 1}
-                                            </span>
-
-                                            <div className="mb-7 flex size-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-body-bg">
-                                                <Icon size={24} />
-                                            </div>
-
-                                            <h4 className="text-lg font-semibold text-foreground">
-                                                {item.title}
-                                            </h4>
-
-                                            <p className="mt-3 text-sm leading-7 text-muted">
-                                                {item.description}
-                                            </p>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </motion.div>
-
-                        {/* Technologies */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="rounded-2xl border border-border bg-surface p-7 sm:p-9"
-                        >
-                            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-                                <div>
-                                    <span className="text-xs font-semibold tracking-[0.2em] text-primary">
-                                        MY TOOLKIT
-                                    </span>
-
-                                    <h3 className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
-                                        Technologies I Work With
-                                    </h3>
-                                </div>
-
-                                <p className="max-w-sm text-sm leading-7 text-muted">
-                                    The tools and technologies I use to build modern web interfaces.
-                                </p>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
-                                {aboutData.skills.map((skill, index) => {
-                                    const Icon = skill.icon;
-
-                                    return (
-                                        <motion.div
-                                            key={skill.name}
-                                            initial={{ opacity: 0, y: 15 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
-                                            transition={{
-                                                duration: 0.45,
-                                                delay: index * 0.08,
-                                            }}
-                                            whileHover={{ y: -5 }}
-                                            className="group flex min-h-28 flex-col items-center justify-center gap-3 rounded-xl border border-border bg-body-bg p-4 transition-all duration-300 hover:border-primary/50 hover:bg-primary/[0.04]"
-                                        >
-                                            <Icon
-                                                size={29}
-                                                className="text-primary transition-transform duration-300 group-hover:scale-110"
-                                            />
-
-                                            <span className="text-center text-xs font-medium text-foreground sm:text-sm">
-                                                {skill.name}
-                                            </span>
-                                        </motion.div>
-                                    );
-                                })}
-                            </div>
-                        </motion.div>
-
-                        {/* Availability */}
-                        <motion.div
-                            variants={itemVariants}
-                            className="mt-8 flex flex-col gap-4 rounded-xl border border-primary/15 bg-primary/[0.04] px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
-                        >
-                            <a
-                                href="#contact"
-                                className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-foreground"
+                            {/* Education */}
+                            <motion.div
+                                variants={itemVariants}
+                                className="mb-14 grid gap-8 rounded-2xl border border-border bg-surface/70 p-7 sm:grid-cols-[0.7fr_1.3fr] sm:items-center sm:p-9"
                             >
-                                Let's Connect
-                                <span aria-hidden="true">↗</span>
-                            </a>
+                                <div>
+                                    <span className="text-xs font-semibold tracking-[0.2em] text-primary">
+                                        MY ACADEMIC JOURNEY
+                                    </span>
+
+                                    <h3 className="mt-3 text-2xl font-semibold text-foreground">
+                                        Education
+                                    </h3>
+
+                                    <p className="mt-2 text-sm leading-7 text-muted">
+                                        Building a strong foundation in computer science and technology.
+                                    </p>
+                                </div>
+
+                                <div className="flex items-center gap-5 border-t border-border pt-7 sm:border-l sm:border-t-0 sm:pl-9 sm:pt-0">
+                                    <div className="flex size-14 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
+                                        <RiGraduationCapLine size={28} />
+                                    </div>
+
+                                    <div>
+                                        <span className="text-[10px] font-semibold tracking-[0.18em] text-primary">
+                                            {aboutData.education.label}
+                                        </span>
+
+                                        <h4 className="mt-2 text-xl font-semibold text-foreground">
+                                            {aboutData.education.degree}
+                                        </h4>
+
+                                        <p className="mt-1 text-sm text-muted">
+                                            {aboutData.education.field}
+                                        </p>
+
+                                        <span className="mt-3 inline-flex items-center gap-2 text-xs text-muted">
+                                            <span className="size-1.5 rounded-full bg-primary" />
+                                            {aboutData.education.status}
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* Focus areas */}
+                            <motion.div variants={itemVariants} className="mb-8">
+                                <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
+                                    <div>
+                                        <span className="text-xs font-semibold tracking-[0.2em] text-primary">
+                                            MY APPROACH
+                                        </span>
+
+                                        <h3 className="mt-3 text-2xl font-semibold text-foreground sm:text-3xl">
+                                            What I Focus On
+                                        </h3>
+                                    </div>
+
+                                    <p className="max-w-md text-sm leading-7 text-muted">
+                                        The principles that guide the way I approach front-end development.
+                                    </p>
+                                </div>
+
+                                <div className="grid gap-4 md:grid-cols-3">
+                                    {aboutData.focusAreas.map((item, index) => {
+                                        const Icon = item.icon;
+
+                                        return (
+                                            <motion.div
+                                                key={item.title}
+                                                variants={itemVariants}
+                                                whileHover={{ y: -6 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 transition-colors duration-300 hover:border-primary/40"
+                                            >
+                                                <span className="absolute right-6 top-6 text-xs text-muted/50">
+                                                    0{index + 1}
+                                                </span>
+
+                                                <div className="mb-7 flex size-12 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-all duration-300 group-hover:bg-primary group-hover:text-body-bg">
+                                                    <Icon size={24} />
+                                                </div>
+
+                                                <h4 className="text-lg font-semibold text-foreground">
+                                                    {item.title}
+                                                </h4>
+
+                                                <p className="mt-3 text-sm leading-7 text-muted">
+                                                    {item.description}
+                                                </p>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
+                            </motion.div>
+
+                            {/* Availability */}
+                            <motion.div
+                                variants={itemVariants}
+                                className="mt-3 flex flex-col gap-4 rounded-xl border border-primary/15 bg-primary/[0.04] px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
+                            >
+                                <a
+                                    href="#contact"
+                                    className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-foreground"
+                                >
+                                    Let's Connect
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
-                )}
+                    )}
+                </AnimatePresence>
             </div>
         </section>
     );
