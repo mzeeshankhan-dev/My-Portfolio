@@ -1,12 +1,12 @@
 ////////// Navigation Links  /////////
 
 export const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "#home", id: "home" },
+  { name: "Services", href: "#services", id: "services" },
+  { name: "Projects", href: "#projects", id: "projects" },
+  { name: "About", href: "#about", id: "about" },
+  { name: "Skills", href: "#skills", id: "skills" },
+  { name: "Contact", href: "#contact", id: "contact" },
 ];
 
 ////////// Hero Section Contect Data   /////////
@@ -179,6 +179,7 @@ import {
   RiHtml5Line,
   RiCss3Line,
 } from "@remixicon/react";
+import AboutImg from "../assets/developer-about-img.webp";
 
 export const aboutData = {
   eyebrow: "GET TO KNOW ME",
@@ -200,7 +201,7 @@ export const aboutData = {
   moreAbout:
     "My journey in web development is driven by curiosity and a desire to keep improving. I enjoy exploring new techniques, solving interface challenges, and learning how design and development work together to create better user experiences. Alongside my development journey, I'm pursuing a Bachelor's degree in Computer Science and continuously strengthening my technical foundation.",
 
-  image: "/images/about.webp",
+  image: AboutImg,
 
   imageAlt: "Professional portrait of Zeeshan Khan",
 

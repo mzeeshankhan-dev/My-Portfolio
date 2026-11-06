@@ -36,13 +36,8 @@ const Skills = () => {
     return (
         <section
             id="skills"
-            className="sectionCtr"
+            className="sectionCtr bg-section-bg"
         >
-            {/* Background decoration */}
-            <div className="pointer-events-none absolute -left-40 -top-40 -z-10 size-[420px] rounded-full bg-primary/[0.07] blur-[130px]" />
-
-            <div className="pointer-events-none absolute -bottom-52 -right-40 -z-10 size-[500px] rounded-full bg-primary/[0.05] blur-[140px]" />
-
             {/* Decorative top line */}
             <div className="pointer-events-none absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 

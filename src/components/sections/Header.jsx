@@ -8,6 +8,8 @@ export default function Header() {
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
     const [mobileOpen, setMobileOpen] = useState(false)
+    const [activeSection, setActiveSection] = useState("home");
+
 
     useEffect(() => {
 
@@ -18,9 +20,8 @@ export default function Header() {
                 } else {
                     setShowNavbar(true);
                 }
-
-                setLastScrollY(window.scrollY);
             }
+            setLastScrollY(window.scrollY);
         };
 
         if (typeof window !== 'undefined') {
@@ -36,10 +37,38 @@ export default function Header() {
         setMobileOpen(false)
     }, [])
 
+    useEffect(() => {
+        const sections = document.querySelectorAll("section[id]");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            {
+                rootMargin: "-35% 0px -55% 0px",
+            }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <header className={`fixed top-0 w-full flex justify-center z-10 items-center pt-4 transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
 
-            <div className={` h-18 sm:h-20 flex items-center justify-between ${mobileOpen ? "rounded-t-2xl border-x border-t" : "rounded-2xl border"}  bg-white/10 backdrop-blur-xl border-white/10 px-6 py-4 w-[90%] sm:w-[80%] lg:w-[70%] min-[1300px]:mx-auto `}>
+            <motion.div
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{
+                    duration: 1,
+                    ease: [0.22, 1, 0.36, 1],
+                }}
+                className={` h-18 sm:h-20 flex items-center justify-between ${mobileOpen ? "rounded-t-2xl border-x border-t" : "rounded-2xl border"}  bg-white/10 backdrop-blur-xl border-white/10 px-6 py-4 w-[90%] sm:w-[80%] lg:w-[70%] min-[1300px]:mx-auto `}>
 
                 <button type="button"
                     className="flex h-12 w-12 items-center justify-center rounded-full lg:hidden"
@@ -56,8 +85,8 @@ export default function Header() {
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.30 }}
-                            className="menu-drawer flex flex-col p-6 lg:hidden w-full absolute top-full left-0 rounded-b-2xl border-x border-b border-white/10 border-2 bg-white/10 backdrop-blur-3xl">
-                            <nav className='flex flex-col gap-1'>
+                            className="menu-drawer flex flex-col p-6 lg:hidden w-full absolute top-full left-0 rounded-b-2xl border-x border-b border-white/10 border-2 bg-section-bg backdrop-blur-xl">
+                            <nav className='flex flex-col gap-1 text-text-heading font-display'>
                                 {navLinks.map((link, index) => (
                                     <motion.a
                                         initial={{ opacity: 0 }}
@@ -81,20 +110,25 @@ export default function Header() {
                     </a>
                 </div>
 
-                <nav className="hidden lg:flex items-center gap-4">
+                <nav className="hidden lg:flex items-center gap-4 text-text-heading font-display">
                     {navLinks.map((link) => (
-                        <a key={link.href} href={link.href}
-                            className=''
+                        <a
+                            className={`transition-all duration-300 ${activeSection === link.id
+                                ? "after:content-[''] after:block after:w-full after:h-0.5 rounded-full after:bg-primary relative after:absolute after:-bottom-1.5 after:left-0 text-primary"
+                                : "text-text-heading hover:text-primary"
+                                }`}
+                            key={link.href} href={link.href}
                         >
                             {link.name}
                         </a>
                     ))}
                 </nav>
 
-                <div className="px-2 py-2 sm:px-3 lg:px4 bg-gold rounded-xl hover:-translate-y-1.5 transition-all">
+                <div className="px-2 py-2 sm:px-3 lg:px4 text-text-heading rounded-xl hover:-translate-y-1.5 transition-all
+                 bg-dark-gold-silver border border-gold">
                     <a href="#contact">Let's Talk</a>
                 </div>
-            </div>
+            </motion.div>
         </header>
     );
 }

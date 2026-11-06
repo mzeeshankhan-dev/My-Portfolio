@@ -6,13 +6,37 @@
   --font-display: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 
-  --color-body-bg: #080d12;
-  --color-card-bg: #111a23;
+  --color-body-bg: #080616;
+  --color-card-bg: #0f1a5b21;
+  --color-section-bg: #040525a6;
+  --color-text-heading: #f4f0e8;
   --color-gold: #d6b477;
-  --color-text: #f4f0e8;
-  --color-muted-gray: #12172a;
+  /* --color-text: #f4f0e8; */
+  --color-text: #828282;
+  /* --color-muted-gray: #12172a; */
   --color-border: #26313d;
-  --color-primary: #c8b6195d;
+  --color-primary: #8a7109;
+
+  --background-image-dark-gold-silver: linear-gradient(
+    135deg,
+    #543d02 0%,
+    #8c660d 15%, 
+    #cfab38 30%,
+    #e4ce63 52%,
+    #cfab38 70%,
+    #8c660d 85%, 
+    #543d02 100%
+  );
+  --background-image-dark-gold-silver-text: linear-gradient(
+    135deg,
+    #b99030 0%,
+    #8c660d 15%, 
+    #cfab38 30%,
+    #e3c42ba9 52%,
+    #cfab38 70%,
+    #8c660d 85%, 
+    #b99030 100%
+  );
 }
 
 /* @theme {
@@ -64,7 +88,6 @@ select {
 
 button {
   cursor: pointer;
-  color: var(--color-text);
 }
 
 button:disabled {
@@ -73,7 +96,6 @@ button:disabled {
 
 a {
   text-decoration: none;
-  font-family: var(--font-display);
 }
 
 h1,
@@ -82,7 +104,7 @@ h3,
 h4,
 h5 {
   font-family: var(--font-display);
-  color: var(--color-text);
+  color: var(--color-text-heading);
 }
 
 ::selection {

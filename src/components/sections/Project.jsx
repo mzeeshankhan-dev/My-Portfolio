@@ -91,7 +91,7 @@ function Projects() {
     return (
         <section
             id="projects"
-            className="sectionCtr"
+            className="sectionCtr bg-section-bg"
         >
             {/* Background glow */}
             <div className="pointer-events-none absolute -left-40 top-40 h-96 w-96 rounded-full bg-primary/5 blur-[140px]" />
@@ -126,14 +126,14 @@ function Projects() {
                 </motion.div>
 
                 {/* Filters */}
-                <div className="mb-10 flex flex-wrap items-center justify-center gap-2 md:mb-14">
+                <div className="mb-10 flex flex-wrap items-center justify-center gap-2 md:mb-14 ">
                     {filters.map((filter) => (
                         <button
                             key={filter}
                             type="button"
                             onClick={() => handleFilterChange(filter)}
                             className={`rounded-full border px-5 py-2.5 text-xs font-medium transition-all duration-300 md:text-sm ${activeFilter === filter
-                                ? "border-primary bg-primary text-body-bg"
+                                ? "border-primary bg-primary text-text-heading"
                                 : "border-border bg-surface/60 text-muted hover:border-primary/50 hover:text-primary"
                                 }`}
                         >
@@ -161,7 +161,7 @@ function Projects() {
                                     layout
                                     className="group text-left"
                                 >
-                                    <article className="h-full overflow-hidden rounded-2xl border border-border/70 bg-surface/70 transition-all duration-300 group-hover:-translate-y-2 group-hover:border-primary/40 group-hover:shadow-[0_18px_50px_rgba(0,0,0,0.2)]">
+                                    <article className="h-full overflow-hidden rounded-2xl bg-card-bg border border-border/70 bg-surface/70 transition-all duration-300 group-hover:-translate-y-2 group-hover:border-primary/40 group-hover:shadow-[0_18px_50px_rgba(0,0,0,0.2)]">
 
                                         {/* Image */}
                                         <div className="relative aspect-16/11 overflow-hidden bg-[#17212B]">

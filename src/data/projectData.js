@@ -10,6 +10,18 @@ import {
   RiPaletteLine,
 } from "@remixicon/react";
 
+///  Projects Images  ///
+
+import P1 from "../assets/projectsImg/sitepilot-saas.Thumb.webp";
+import P2 from "../assets/projectsImg/watchLandingPage.webp";
+import P3 from "../assets/projectsImg/PaghmanImg.webp";
+import P4 from "../assets/projectsImg/E-O-Restaurant.webp";
+import P5 from "../assets/projectsImg/E-commerce.webp";
+import P6 from "../assets/projectsImg/PortfolioImg.webp";
+import P7 from "../assets/projectsImg/servicesImg.webp";
+import P8 from "../assets/projectsImg/Dashboard.webp";
+
+
 const projects = [
   {
     id: 1,
@@ -18,8 +30,7 @@ const projects = [
     category: "Web Apps",
     year: "2026",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&auto=format&fit=crop&q=85",
+    image: P1,
     description:
       "A modern e-commerce front-end experience designed around elegant product presentation, intuitive navigation, and a smooth shopping journey.",
     overview:
@@ -43,8 +54,7 @@ const projects = [
     category: "Landing Pages",
     year: "2026",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1400&auto=format&fit=crop&q=85",
+    image: P2,
     description:
       "A sophisticated agency landing page with strong typography, refined visual hierarchy, and a clean modern layout.",
     overview:
@@ -68,8 +78,7 @@ const projects = [
     category: "Dashboards",
     year: "2026",
     featured: true,
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&auto=format&fit=crop&q=85",
+    image: P3,
     description:
       "A clean analytics dashboard interface designed to present important information through organized layouts and visual data elements.",
     overview:
@@ -93,8 +102,7 @@ const projects = [
     category: "Websites",
     year: "2026",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1400&auto=format&fit=crop&q=85",
+    image: P4,
     description:
       "A minimal and elegant portfolio website concept designed to showcase creative work, professional experience, and personal identity.",
     overview:
@@ -118,8 +126,7 @@ const projects = [
     category: "Web Apps",
     year: "2026",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1400&auto=format&fit=crop&q=85",
+    image: P5,
     description:
       "A modern weather application interface that presents weather information in a simple, accessible, and visually engaging way.",
     overview:
@@ -143,8 +150,7 @@ const projects = [
     category: "Landing Pages",
     year: "2026",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&auto=format&fit=crop&q=85",
+    image: P6,
     description:
       "A polished SaaS landing page concept with a clear product story, structured feature sections, and conversion-focused calls to action.",
     overview:
@@ -168,8 +174,7 @@ const projects = [
     category: "Web Apps",
     year: "2026",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1400&auto=format&fit=crop&q=85",
+    image: P7,
     description:
       "A fitness application interface concept with structured activity sections and a clean, motivating visual experience.",
     overview:
@@ -193,8 +198,7 @@ const projects = [
     category: "Websites",
     year: "2026",
     featured: false,
-    image:
-      "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1400&auto=format&fit=crop&q=85",
+    image: P8,
     description:
       "An approachable online learning website concept with organized course sections and a student-friendly interface.",
     overview:
@@ -210,31 +214,6 @@ const projects = [
     liveUrl: "",
     githubUrl: "",
     icon: RiGraduationCapLine,
-  },
-  {
-    id: 9,
-    title: "Minimal Store",
-    subtitle: "Product Showcase Website",
-    category: "Websites",
-    year: "2026",
-    featured: false,
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1400&auto=format&fit=crop&q=85",
-    description:
-      "A minimal product showcase website with clean product presentation, balanced spacing, and a consistent visual style.",
-    overview:
-      "Minimal Store is a front-end website concept focused on product discovery and a straightforward browsing experience.",
-    role: "UI Development",
-    technologies: ["HTML", "CSS", "Tailwind CSS", "JavaScript"],
-    features: [
-      "Product showcase sections",
-      "Clean navigation",
-      "Responsive product grid",
-      "Consistent UI styling",
-    ],
-    liveUrl: "",
-    githubUrl: "",
-    icon: RiShoppingBag3Line,
   },
 ];
 

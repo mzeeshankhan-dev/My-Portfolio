@@ -44,7 +44,7 @@ function AnimatedText() {
     }, [charIndex, isDeleting, wordIndex]);
 
     return (
-        <span className="text-gold">
+        <span className="bg-clip-text text-transparent bg-dark-gold-silver-text">
             {words[wordIndex].substring(0, charIndex)}
             <motion.span
                 initial={{

@@ -206,10 +206,11 @@ const About = () => {
                 <AnimatePresence initial={false}>
                     {showMore && (
                         <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.1 }}
+                            initial={{ opacity: 0, height: 0, y: 10 }}
+                            animate={{ opacity: 1, height: "auto", y: 0 }}
+                            exit={{ opacity: 0, height: 0, y: 10 }}
+                            transition={{ duration:0.4, ease: "easeInOut" }}
+                            className="overflow-hidden"
                         >
 
                             {/* Education */}
