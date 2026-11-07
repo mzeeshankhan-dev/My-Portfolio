@@ -18,7 +18,7 @@ const filters = [
     "All",
     "Websites",
     "Landing Pages",
-    "Web Apps",
+    "Portfolio",
     "Dashboards",
 ];
 
@@ -334,7 +334,7 @@ function ProjectModal({ project, onClose }) {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="project-modal-title"
-                className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-border bg-surface shadow-2xl scroolbar-thin scrollbar-track-transparent scrollbar-thumb-border/50 scrollbar-thumb-rounded-lg md:scrollbar-thumb-border/30"
+                className="relative max-h-[92vh] w-full max-w-4xl overflow-y-auto rounded-2xl border border-border bg-surface shadow-2xl scrollbar-thin scrollbar-track-transparent scrollbar-thumb-border/50 scrollbar-thumb-rounded-lg md:scrollbar-thumb-border/30"
             >
                 {/* Close button */}
                 <button
@@ -347,15 +347,13 @@ function ProjectModal({ project, onClose }) {
                 </button>
 
                 {/* Project thumbnail */}
-                <div className="relative aspect-video overflow-hidden bg-[#17212B]">
+                <div className="relative aspect-video overflow-hidden">
                     <img
                         src={project.image}
                         alt={`${project.title} full project preview`}
-                        className="h-full w-full object-cover"
+                        className="w-full object-cover object-center"
                     />
-
-                    <div className="absolute inset-0 bg-linear-to-t from-body-bg/80 via-transparent to-transparent" />
-
+                    
                     <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8">
                         <span className="mb-3 inline-flex rounded-full border border-primary/30 bg-black/40 px-3 py-1.5 text-[10px] uppercase tracking-widest text-primary backdrop-blur-md">
                             {project.category}
