@@ -332,7 +332,7 @@ const Contact = () => {
                             {/* Submit */}
                             <button
                                 type="submit"
-                                className="group inline-flex w-full items-center justify-center gap-3 rounded-xl bg-primary px-6 py-4 text-sm font-semibold text-body-bg transition-all duration-300 hover:-translate-y-1 hover:bg-[#E4C58F] hover:shadow-[0_10px_35px_rgba(214,180,119,0.15)] sm:w-auto"
+                                className="group inline-flex w-full items-center justify-center gap-3 rounded-xl bg-dark-gold-silver px-6 py-4 text-sm font-semibold text-body-bg transition-all duration-300 hover:-translate-y-1 hover:bg-primary hover:shadow-[0_10px_35px_rgba(214,180,119,0.15)] sm:w-auto"
                             >
                                 <RiSendPlaneLine
                                     size={19}

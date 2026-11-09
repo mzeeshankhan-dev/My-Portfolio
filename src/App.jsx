@@ -11,6 +11,7 @@ import Projects from './components/sections/Project';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Contact from './components/sections/Contact';
+import WhatsAppBtn from './components/common/WhatsAppBtn';
 
 const App = () => {
 
@@ -39,6 +40,7 @@ const App = () => {
             <Contact />
           </main>
           <Footer />
+          <WhatsAppBtn/>
         </div>
       )}
 

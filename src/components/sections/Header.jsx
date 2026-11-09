@@ -7,8 +7,8 @@ import { motion, AnimatePresence } from "framer-motion"
 export default function Header() {
     const [showNavbar, setShowNavbar] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
-    const [mobileOpen, setMobileOpen] = useState(false)
     const [activeSection, setActiveSection] = useState("home");
+    const [mobileOpen, setMobileOpen] = useState(false)
 
 
     useEffect(() => {
@@ -34,10 +34,6 @@ export default function Header() {
     }, [lastScrollY]);
 
     useEffect(() => {
-        setMobileOpen(false)
-    }, [])
-
-    useEffect(() => {
         const sections = document.querySelectorAll("section[id]");
 
         const observer = new IntersectionObserver(
@@ -58,8 +54,12 @@ export default function Header() {
         return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        setMobileOpen(false)
+    }, []);
+
     return (
-        <header className={`fixed top-0 w-full flex justify-center z-10 items-center pt-4 transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
+        <header className={`fixed top-0 w-full flex flex-col justify-center z-10 items-center pt-4 transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-full'}`}>
 
             <motion.div
                 initial={{ y: -100, opacity: 0 }}
@@ -78,32 +78,6 @@ export default function Header() {
                     {mobileOpen ? <X className="h-7 w-7" aria-hidden="true" /> : <Menu className="h-7 w-7" aria-hidden="true" />}
                 </button>
 
-                <AnimatePresence>
-                    {mobileOpen && (
-                        <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.30 }}
-                            className="menu-drawer flex flex-col p-6 lg:hidden w-full absolute top-full left-0 rounded-b-2xl border-x border-b border-white/10 border-2 bg-section-bg backdrop-blur-xl">
-                            <nav className='flex flex-col gap-1 text-text-heading font-display'>
-                                {navLinks.map((link, index) => (
-                                    <motion.a
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{
-                                            duration: 0.5,
-                                            delay: index * 0.15,
-                                        }}
-                                        className='bg-card-bg px-6 py-2 rounded-xl hover:bg-gray-800' key={index} href={link.href}>
-                                        {link.name}
-                                    </motion.a>
-                                ))}
-                            </nav>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
                 <div className="logo w-18 h-18 sm:w-20 sm:h-20 lg:w-25 lg:h-25">
                     <a href="#">
                         <img src={HeaderLogo} alt="Logo" />
@@ -113,22 +87,48 @@ export default function Header() {
                 <nav className="hidden lg:flex items-center gap-4 text-text-heading font-display">
                     {navLinks.map((link) => (
                         <a
+                            key={link.href} href={link.href}
                             className={`transition-all duration-300 ${activeSection === link.id
                                 ? "after:content-[''] after:block after:w-full after:h-0.5 rounded-full after:bg-primary relative after:absolute after:-bottom-1.5 after:left-0 text-primary"
                                 : "text-text-heading hover:text-primary"
                                 }`}
-                            key={link.href} href={link.href}
                         >
                             {link.name}
                         </a>
                     ))}
                 </nav>
 
-                <div className="px-2 py-2 sm:px-3 lg:px4 text-text-heading rounded-xl hover:-translate-y-1.5 transition-all
+                <div className="px-1.5 py-1.5 sm:px-3 lg:px4 text-text-heading rounded-xl hover:-translate-y-1.5 transition-all
                  bg-dark-gold-silver border border-gold">
                     <a href="#contact">Let's Talk</a>
                 </div>
             </motion.div>
+
+            <AnimatePresence>
+                {mobileOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        transition={{ duration: 0.2 }}
+                        className="menu-drawer flex flex-col p-6 overflow-hidden lg:hidden rounded-b-2xl border-x border-b border-white/10 bg-white/10 backdrop-blur-xl px-6 py-4 w-[90%] sm:w-[80%] lg:w-[70%] min-[1300px]:mx-auto"
+                    >
+                        <ul className='flex flex-col gap-0.5 text-text-heading font-display'>
+                            {navLinks.map((link, index) => (
+                                <li className='inline-flex' key={index}>
+                                    <a
+                                        href={link.href}
+                                        onClick={() => setMobileOpen(false)}
+                                        className={` px-6 py-3 rounded-lg w-full hover:bg-body-bg/80 ${activeSection === link.id ? "bg-body-bg/80" : "bg-body-bg/60 backdrop-blur-sm"}`}
+                                    >
+                                        {link.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

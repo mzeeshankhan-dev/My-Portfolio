@@ -107,6 +107,10 @@ h5 {
   color: var(--color-text-heading);
 }
 
+li{
+  list-style: none;
+}
+
 ::selection {
   background-color: var(--color-primary);
   color: var(--color-body-bg);
