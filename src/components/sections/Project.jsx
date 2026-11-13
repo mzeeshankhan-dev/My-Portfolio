@@ -159,7 +159,8 @@ function Projects() {
                                     key={project.id}
                                     variants={cardVariants}
                                     layout
-                                    className="group text-left"
+                                    className="group text-left [&:hover_#projectCard-overlay]:from-body-bg/90   [&:hover_#projectCard-overlay]:via-body-bg/60 [&:hover_#projectCard-overlay]:to-transparent"
+                                    id="project-card"
                                 >
                                     <article className="h-full overflow-hidden rounded-2xl bg-card-bg border border-border/70 bg-surface/70 transition-all duration-300 group-hover:-translate-y-2 group-hover:border-primary/40 group-hover:shadow-[0_18px_50px_rgba(0,0,0,0.2)]">
 
@@ -169,34 +170,36 @@ function Projects() {
                                                 src={project.image}
                                                 alt={`${project.title} project preview`}
                                                 loading="lazy"
-                                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                className="h-full w-full object-cover transition-transform duration-700"
+                                                id="project-img"
                                             />
 
                                             {/* Action buttons */}
-                                            <div className="absolute inset-0 flex items-center justify-center gap-3 text-blue-950 transition duration-500  bg-linear-to-t from-body-bg/80 via-transparent to-transparent group-hover:from-body-bg/90  group-hover:via-body-bg/60 group-hover:to-transparent ">
-                                                {/* {project.liveUrl && ( */}
-                                                <a
-                                                    href={project.liveUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className=" inline-flex items-center rounded-full bg-text px-3 py-3 text-sm font-semibold translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 hover:bg-gold hover:text-body-bg"
-                                                >
-                                                    <RiExternalLinkFill color="currentColor" size={32} />
-                                                </a>
-                                                {/* )} */}
+                                            <div id="projectCard-overlay" className="absolute inset-0 flex items-center justify-center gap-3 text-blue-950 transition duration-500  bg-linear-to-t from-body-bg/80 via-transparent to-transparent group-hover:from-body-bg/90  group-hover:via-body-bg/60 group-hover:to-transparent ">
+                                                {project.liveUrl && (
+                                                    <a
+                                                        href={project.liveUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className=" inline-flex items-center rounded-full bg-text px-3 py-3 text-sm font-semibold hover:bg-gold hover:text-body-bg active:translate-0.8"
+                                                        id="project-btn"
+                                                    >
+                                                        <RiExternalLinkFill color="currentColor" size={32} />
+                                                    </a>
+                                                )}
 
-                                                {/* {project.githubUrl && ( */}
-                                                <a
-                                                    href={project.githubUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className=" inline-flex items-center rounded-full bg-text px-3 py-3 text-sm font-semibold translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-100 hover:bg-gold hover:text-body-bg"
-                                                >
-                                                    <RiGithubFill size={32} />
-                                                </a>
-                                                {/* )} */}
+                                                {project.githubUrl && (
+                                                    <a
+                                                        id="project-btn"
+                                                        href={project.githubUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className=" inline-flex items-center rounded-full bg-text px-3 py-3 text-sm font-semibold hover:bg-gold hover:text-body-bg active:translate-0.8"
+                                                    >
+                                                        <RiGithubFill size={32} />
+                                                    </a>
+                                                )}
                                             </div>
-                                            {/* )} */}
 
                                             {/* Category */}
                                             <span className="absolute left-4 top-4 rounded-full border border-white/15 bg-black/40 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-white backdrop-blur-md">
@@ -353,7 +356,7 @@ function ProjectModal({ project, onClose }) {
                         alt={`${project.title} full project preview`}
                         className="w-full object-cover object-center"
                     />
-                    
+                    -
                     <div className="absolute bottom-5 left-5 right-5 md:bottom-8 md:left-8">
                         <span className="mb-3 inline-flex rounded-full border border-primary/30 bg-black/40 px-3 py-1.5 text-[10px] uppercase tracking-widest text-primary backdrop-blur-md">
                             {project.category}
